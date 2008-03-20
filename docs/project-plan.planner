@@ -21,7 +21,7 @@
   </calendars>
   <tasks>
     <task id="1" name="Project Planning" note="" work="172800" start="20080320T000000Z" end="20080324T160000Z" work-start="20080320T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="2" name="Plan Development" note="" work="28800" start="20080320T000000Z" end="20080320T170000Z" work-start="20080320T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="2" name="Plan Development" note="" work="28800" start="20080320T000000Z" end="20080320T170000Z" work-start="20080320T080000Z" percent-complete="75" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="3" name="Hudson UI Study" note="" work="28800" duration="28800" start="20080321T000000Z" end="20080321T160000Z" work-start="20080321T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
         <constraint type="must-start-on" time="20080321T000000Z"/>
       </task>
