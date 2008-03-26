@@ -1,0 +1,63 @@
+<article>
+  <articleinfo>
+
+    <copyright>
+      <year>2002</year>
+      <holder>Eric Baudais</holder>
+    </copyright>
+
+    <authorgroup>
+      <author>
+        <firstname>Eric</firstname>
+        <surname>Baudais</surname>
+        <affiliation>
+          <orgname>GNOME Documentation Project</orgname>
+          <address>
+            <email>baudais@kkpsi.org</email>
+          </address>
+        </affiliation>
+      </author>
+
+      <author>
+        <firstname>John</firstname>
+        <surname>Doe</surname>
+          <affiliation>
+          <orgname>Free Software Foundation</orgname>
+          <address>
+            59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+            <email>john.doe@gnu.org</email>
+          </address>
+        </affiliation>
+      </author>
+    </authorgroup>
+
+    <legalnotice>
+      <title>Legal Notices</title>
+
+      <para>
+        Permission is granted to copy, distribute and/or modify this
+        document under the terms of the GNU Free Documentation
+        License (GFDL), Version 1.1 or any later version published
+        by the Free Software Foundation with no Invariant Sections,
+        no Front-Cover Texts, and no Back-Cover Texts.  You can find
+        a copy of the GFDL at this <ulink type="help"
+        url="ghelp:fdl">link</ulink> or in the file COPYING-DOCS
+        distributed with this manual.
+      </para>
+    </legalnotice>
+
+    <releaseinfo>
+      This is version 1.0.0 of DocBook Basics documenting version 4.1.2 of
+      DocBook XML.
+    </releaseinfo>
+
+  </articleinfo>
+
+  <sect1>
+    <title>DocBook Example</title>
+    <para>
+      This is an example of using DocBook for the most basic type of
+      document.  The article just has one section and one paragraph.
+    </para>
+  </sect1>
+</article>
