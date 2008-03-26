@@ -21,14 +21,14 @@
   </calendars>
   <tasks>
     <task id="1" name="Project Planning" note="" work="172800" start="20080320T000000Z" end="20080328T170000Z" work-start="20080320T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <task id="2" name="Plan Development" note="" work="28800" start="20080320T000000Z" end="20080320T170000Z" work-start="20080320T080000Z" percent-complete="75" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="3" name="Hudson UI Study" note="" work="28800" duration="28800" start="20080324T000000Z" end="20080324T160000Z" work-start="20080324T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <task id="2" name="Plan Development" note="" work="28800" start="20080320T000000Z" end="20080320T170000Z" work-start="20080320T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="3" name="Hudson UI Study" note="" work="28800" duration="28800" start="20080324T000000Z" end="20080324T160000Z" work-start="20080324T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-duration">
         <constraint type="must-start-on" time="20080324T000000Z"/>
       </task>
-      <task id="4" name="CI Monitor UI Sketches" note="" work="28800" duration="28800" start="20080325T000000Z" end="20080325T160000Z" work-start="20080325T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <task id="4" name="CI Monitor UI Sketches" note="" work="28800" duration="28800" start="20080325T000000Z" end="20080325T160000Z" work-start="20080325T080000Z" percent-complete="90" priority="0" type="normal" scheduling="fixed-duration">
         <constraint type="must-start-on" time="20080325T000000Z"/>
       </task>
-      <task id="5" name="Functional Requirements Development" note="" work="86400" start="20080326T000000Z" end="20080328T170000Z" work-start="20080326T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="5" name="Functional Requirements Development" note="" work="86400" start="20080326T000000Z" end="20080328T170000Z" work-start="20080326T080000Z" percent-complete="50" priority="0" type="normal" scheduling="fixed-work">
         <constraint type="start-no-earlier-than" time="20080326T000000Z"/>
         <predecessors>
           <predecessor id="1" predecessor-id="4" type="FS"/>
