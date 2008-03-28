@@ -1,17 +1,12 @@
 #!/usr/bin/env python
+
 import pygtk
-pygtk.require('2.0')
-
-import gtk
 import gnomeapplet
-import gobject
 import sys
+from gcimon import main
 
-def sample_factory(applet, iid):
-    label = gtk.Label("Hello, world --- -- ")
-    applet.add(label)
-    
-    applet.show_all()
+def gcimon_factory(applet, iid):
+    main(applet,iid)
     return gtk.TRUE
 
 if len(sys.argv) == 2 and sys.argv[1] == "--run-in-window":   

@@ -20,7 +20,7 @@
     </calendar>
   </calendars>
   <tasks>
-    <task id="1" name="Project Planning" note="" work="172800" start="20080320T000000Z" end="20080328T170000Z" work-start="20080320T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
+    <task id="1" name="Project Planning" note="" work="144000" start="20080320T000000Z" end="20080327T160000Z" work-start="20080320T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
       <task id="2" name="Plan Development" note="" work="28800" start="20080320T000000Z" end="20080320T170000Z" work-start="20080320T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work"/>
       <task id="3" name="Hudson UI Study" note="" work="28800" duration="28800" start="20080324T000000Z" end="20080324T160000Z" work-start="20080324T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-duration">
         <constraint type="must-start-on" time="20080324T000000Z"/>
@@ -28,27 +28,27 @@
       <task id="4" name="CI Monitor UI Sketches" note="" work="28800" duration="28800" start="20080325T000000Z" end="20080325T160000Z" work-start="20080325T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-duration">
         <constraint type="must-start-on" time="20080325T000000Z"/>
       </task>
-      <task id="5" name="Functional Requirements Development" note="" work="86400" start="20080326T000000Z" end="20080328T170000Z" work-start="20080326T080000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
-        <constraint type="start-no-earlier-than" time="20080326T000000Z"/>
+      <task id="5" name="Functional Requirements Development" note="" work="57600" start="20080325T160000Z" end="20080327T160000Z" work-start="20080325T160000Z" percent-complete="100" priority="0" type="normal" scheduling="fixed-work">
+        <constraint type="start-no-earlier-than" time="20080325T000000Z"/>
         <predecessors>
           <predecessor id="1" predecessor-id="4" type="FS"/>
           <predecessor id="1" predecessor-id="3" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="6" name="Software Development" note="" work="547200" start="20080328T170000Z" end="20080409T170000Z" work-start="20080329T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="6" name="Software Development" note="" work="547200" start="20080327T160000Z" end="20080409T170000Z" work-start="20080327T160000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
         <predecessor id="1" predecessor-id="1" type="FS"/>
       </predecessors>
-      <task id="7" name="Python Gnome Execises" note="" work="28800" duration="28800" start="20080328T170000Z" end="20080329T160000Z" work-start="20080329T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-duration">
+      <task id="7" name="Python Gnome Execises" note="" work="28800" duration="28800" start="20080327T160000Z" end="20080328T150000Z" work-start="20080327T160000Z" percent-complete="50" priority="0" type="normal" scheduling="fixed-duration">
         <predecessors>
           <predecessor id="1" predecessor-id="1" type="FS"/>
         </predecessors>
       </task>
-      <task id="8" name="Plugin Architecture Design" note="" work="57600" start="20080328T170000Z" end="20080330T170000Z" work-start="20080329T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="8" name="Plugin Architecture Design" note="" work="57600" start="20080327T160000Z" end="20080329T160000Z" work-start="20080327T160000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <constraint type="start-no-earlier-than" time="20080325T000000Z"/>
       </task>
-      <task id="9" name="Hudson Plugin Development" note="" work="201600" start="20080328T170000Z" end="20080404T170000Z" work-start="20080329T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="9" name="Hudson Plugin Development" note="" work="201600" start="20080327T160000Z" end="20080403T160000Z" work-start="20080327T160000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <constraint type="start-no-earlier-than" time="20080326T000000Z"/>
       </task>
       <task id="10" name="GUI Development" note="" work="201600" start="20080402T000000Z" end="20080408T170000Z" work-start="20080402T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">

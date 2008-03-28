@@ -1,8 +1,9 @@
 <oaf_info>
 
-<oaf_server iid="OAFIID:GNOME_PythonAppletSample_Factory"
+<oaf_server             
+            iid="OAFIID:GNOME_PythonAppletSample_Factory"
             type="exe"
-            location="applet.py">
+            location="/home/brian/Projects/gcimon/docs/pygtk.applet.demo/applet.py">
 
         <oaf_attribute name="repo_ids" type="stringv">
                 <item value="IDL:Bonobo/GenericFactory:1.0"/>
