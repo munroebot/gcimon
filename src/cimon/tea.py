@@ -1,4 +1,4 @@
-from backends import Hudson
+from backends import hudson
 
-be1 = Hudson.Backend()
-print be1.getStatus()
+be1 = hudson.Backend()
+print be1.getProjectStatus('Dummy Project')
