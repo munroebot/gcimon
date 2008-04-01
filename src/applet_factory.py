@@ -3,9 +3,9 @@
 import pygtk
 import gnomeapplet
 import sys
-from gcimon import main
+from cimon import main
 
-def gcimon_factory(applet, iid):
+def cimon_factory(applet, iid):
     main(applet,iid)
     return gtk.TRUE
 
