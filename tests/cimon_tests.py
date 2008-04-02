@@ -16,11 +16,8 @@ class BackendModuleWellFormedness(unittest.TestCase):
                 self.assertTrue(x.PLUGIN_NAME in known_plugins)
             except:
                 print x
-
-    def testMethod_getProjectStatus(self):
-        for x in backends.getAvailableBackends():
-            try:
-                self.assertEquals("
+                raise AssertionError
+                
             
 if __name__ == "__main__":
     unittest.main()
