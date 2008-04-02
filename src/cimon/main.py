@@ -8,5 +8,5 @@ def my_import(name):
     return mod
 
 x = my_import("backends." + backends.__all__[1])
-
-x.Backend()
+y = x.Backend()
+print y.getProjectStatus()
