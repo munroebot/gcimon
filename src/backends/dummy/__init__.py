@@ -1,4 +1,4 @@
-PLUGIN_NAME = 'Dummy Backend'
+PLUGIN_NAME = 'Dummy'
 
 class Backend(object):
 

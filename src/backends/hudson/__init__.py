@@ -1,4 +1,4 @@
-PLUGIN_NAME = 'Hudson CI Server Backend'
+PLUGIN_NAME = 'Hudson'
 
 class Backend(object):
 	
