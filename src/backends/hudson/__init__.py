@@ -1,13 +1,35 @@
-## THis is the Hudson backend.  Please see the docs/plugins_howto.txt for
-## more info on developing new plugins for gcimon
+# backends/hudson/__init__.py
+# Copyright 2007, Brian Munroe <brian.e.munroe@gmail.com>
+
+# This is the Hudson CI plugin.  Please see the 
+# docs/plugins_howto.txt for more info on developing 
+# new plugins for gcimon.
+
+# This file is part of gcimon.
+#
+# gcimon is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# gcimon is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with gcimon.  If not, see <http://www.gnu.org/licenses/>.
 
 from gcimon.types import Project
 
 import urllib
 from xml.dom import minidom
 
-PLUGIN_NAME = 'hudson'
-PLUGIN_DESCRIPTION = """This plugin is for the Hudson Continuous Intergration Server"""
+PLUGIN_NAME = "hudson"
+PLUGIN_DESCRIPTION = """
+This plugin is for the Hudson Continuous Integration Server.  
+For more information, please see http://hudson.dev.java.net
+"""
 PLUGIN_VERSION = "1.0"
 	
 class Backend(object):
