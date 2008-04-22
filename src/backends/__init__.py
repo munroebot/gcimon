@@ -2,9 +2,12 @@ import os
 availableBackendsList = []
 
 def getAvailableBackends():
-	return map(subpackage_import, availableBackendsList)
+	return map(__subpackage_import, availableBackendsList)
 
-def subpackage_import(name):
+def getBackend(backendName):
+	return __subpackage_import("backends." + backendName)
+
+def __subpackage_import(name):
 	mod = __import__(name)
 	components = name.split('.')
 	for comp in components[1:]:

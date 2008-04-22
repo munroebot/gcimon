@@ -5,11 +5,11 @@ sys.path.append('../src') # needed for loading backends
 
 import backends
 
-known_plugins = ['Hudson','Dummy','CruiseControl']
+known_plugins = ['hudson','dummy','cruisecontrol']
 
 class BackendModuleWellFormedness(unittest.TestCase):
 
-    def testAttribute_PLUGIN_NAME(self):
+    def test_PLUGIN_NAME(self):
         """ All plugins should have a PLUGIN_NAME"""
         for x in backends.getAvailableBackends():
             try:
@@ -17,7 +17,24 @@ class BackendModuleWellFormedness(unittest.TestCase):
             except:
                 print x
                 raise AssertionError
-                
-            
+
+    def test_PLUGIN_DESCRIPTION(self):
+        """ All plugins should have a PLUGIN_DESCRIPTION"""
+        for x in backends.getAvailableBackends():
+            try:
+                self.assertTrue(x.PLUGIN_DESCRIPTION != None)
+            except:
+                print x
+                raise AssertionError
+
+    def test_PLUGIN_VERSION(self):
+        """ All plugins should have a PLUGIN_DESCRIPTION"""
+        for x in backends.getAvailableBackends():
+            try:
+                self.assertTrue(x.PLUGIN_VERSION != None)
+            except:
+                print x
+                raise AssertionError
+
 if __name__ == "__main__":
     unittest.main()

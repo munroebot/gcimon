@@ -1,0 +1,4 @@
+http://localhost:8080/hudson/api/xml
+http://localhost:8080/hudson/job/Dummy Project for Hudson Monitor/api/xml
+
+Need to HTML encode these URLS? (%20)?
