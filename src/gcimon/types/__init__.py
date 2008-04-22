@@ -26,3 +26,16 @@ class Project(object):
         
     projectName = property(getProjectName, setProjectName, delProjectName, "ProjectName's Docstring")
     projectStatus = property(getProjectStatus, setProjectStatus, delProjectStatus, "ProjectStatus's Docstring")
+
+class BaseBackend(object):
+
+	def __init__(self):
+		self.baseUrl = None
+		self.username = None
+		self.password = None
+	
+	def setBaseUrl(self,baseUrl):
+		self.baseUrl = baseUrl
+
+	def getBaseUrl(self):
+		return self.baseUrl

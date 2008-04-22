@@ -11,4 +11,4 @@ for project in projectSite1.getDashboardStatus():
 	print project.projectName
 	print project.projectStatus
 
-#print projectSite1.getProjectStatus('Dummy Project for Hudson Monitor')
+print projectSite1.getProjectStatus('Dummy Project for Hudson Monitor')

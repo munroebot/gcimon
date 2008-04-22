@@ -1,9 +1,9 @@
 # backends/dummy/__init__.py
 # Copyright 2007, Brian Munroe <brian.e.munroe@gmail.com>
 
-# This is a dummy (mock) CI plugin.  Please see the 
-# docs/plugins_howto.txt for more info on developing 
-# new plugins for gcimon.
+# This is a dummy (mock) CI backend.  Please see the 
+# docs/backends_howto.txt for more info on developing 
+# new backends for gcimon.
 
 # This file is part of gcimon.
 #
@@ -20,13 +20,14 @@
 # You should have received a copy of the GNU General Public License
 # along with gcimon.  If not, see <http://www.gnu.org/licenses/>.
 
-from gcimon.types import Project
+from gcimon.types import Project, BaseBackend
 
-PLUGIN_NAME = 'dummy'
-PLUGIN_DESCRIPTION = """ This is a dummy CI backend """
-PLUGIN_VERSION = "1.0"
+BACKEND_NAME = "dummy"
+BACKEND_DESCRIPTION = """ This is a dummy (mock) CI backend """
+BACKEND_VERSION = "1.0"
 
-class Backend(object):
+class Backend(BaseBackend):
+	
 	def __init__(self):
 		pass
 
@@ -34,4 +35,4 @@ class Backend(object):
 		return Project.BUILD_STATUS_OK
 	
 	def getDashboardStatus(self):
-		pass
+		return []

@@ -1,9 +1,9 @@
 # backends/cruisecontrol/__init__.py
 # Copyright 2007, Brian Munroe <brian.e.munroe@gmail.com>
 
-# This is the CruiseControl CI plugin.  Please see the 
-# docs/plugins_howto.txt for more info on developing 
-# new plugins for gcimon.
+# This is the CruiseControl CI backend.  Please see the 
+# docs/backends_howto.txt for more info on developing 
+# new backends for gcimon.
 
 # This file is part of gcimon.
 #
@@ -20,13 +20,13 @@
 # You should have received a copy of the GNU General Public License
 # along with gcimon.  If not, see <http://www.gnu.org/licenses/>.
 
-from gcimon.types import Project
+from gcimon.types import Project, BaseBackend
 
-PLUGIN_NAME = 'cruisecontrol'
-PLUGIN_DESCRIPTION = """ This is the CruiseControl CI Server Backend """
-PLUGIN_VERSION = "1.0"
+BACKEND_NAME = 'cruisecontrol'
+BACKEND_DESCRIPTION = """ This is the CruiseControl CI Server Backend """
+BACKEND_VERSION = "1.0"
 
-class Backend(object):
+class Backend(BaseBackend):
 	def __init__(self):
 		pass
 

@@ -1,9 +1,9 @@
 # backends/hudson/__init__.py
 # Copyright 2007, Brian Munroe <brian.e.munroe@gmail.com>
 
-# This is the Hudson CI plugin.  Please see the 
-# docs/plugins_howto.txt for more info on developing 
-# new plugins for gcimon.
+# This is the Hudson CI backend.  Please see the 
+# docs/backends_howto.txt for more info on developing 
+# new CI backends for gcimon.
 
 # This file is part of gcimon.
 #
@@ -20,28 +20,23 @@
 # You should have received a copy of the GNU General Public License
 # along with gcimon.  If not, see <http://www.gnu.org/licenses/>.
 
-from gcimon.types import Project
+from gcimon.types import BaseBackend, Project
 
 import urllib
 from xml.dom import minidom
 
-PLUGIN_NAME = "hudson"
-PLUGIN_DESCRIPTION = """
-This plugin is for the Hudson Continuous Integration Server.  
+BACKEND_NAME = "hudson"
+BACKEND_DESCRIPTION = """
+This backend is for the Hudson Continuous Integration Server.  
 For more information, please see http://hudson.dev.java.net
 """
-PLUGIN_VERSION = "1.0"
+BACKEND_VERSION = "1.0"
 	
-class Backend(object):
+class Backend(BaseBackend):
 	
 	def __init__(self):
-		self.baseUrl = None
-		self.username = None
-		self.password = None
-	
-	def setBaseUrl(self,baseUrl):
-		self.baseUrl = baseUrl
-	
+		pass
+		
 	def getDashboardStatus(self):
 		try:
 			projectArray = []
@@ -72,8 +67,9 @@ class Backend(object):
 				projectArray.append(p1)
 		
 			return projectArray
-		except:
-			return None
+		except Exception, e:
+			print("Error in backends.hudson.Backend.getDashboardStatus(): " + str(e))
+			return []
 			
 	def getProjectStatus(self,projectName=None):
 		try:
@@ -82,6 +78,7 @@ class Backend(object):
 			sock.close()
 			xmldoc = minidom.parseString(xmlSource)
 			return xmldoc.toxml()
-		except: 
+		except Exception, e: 
+			print("Error in backends.hudson.Backend.getProjectStatus(): " + str(e))
 			return None
  
