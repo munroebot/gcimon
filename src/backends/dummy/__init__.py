@@ -24,7 +24,7 @@ from gcimon.types import Project, BaseBackend
 
 BACKEND_NAME = "dummy"
 BACKEND_DESCRIPTION = """ This is a dummy (mock) CI backend """
-BACKEND_VERSION = "1.0"
+#BACKEND_VERSION = "1.0"
 
 class Backend(BaseBackend):
 	
