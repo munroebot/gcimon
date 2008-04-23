@@ -3,6 +3,7 @@ import sys
 import xmlrunner
 
 sys.path.append('../src') # needed for loading backends
+sys.path.append('trunk/src') # For Hudson Testing 
 
 import backends
 
