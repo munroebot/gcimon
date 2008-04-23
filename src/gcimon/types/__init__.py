@@ -30,12 +30,17 @@ class Project(object):
 class BaseBackend(object):
 
 	def __init__(self):
-		self.baseUrl = None
-		self.username = None
-		self.password = None
-	
-	def setBaseUrl(self,baseUrl):
-		self.baseUrl = baseUrl
+		self.__baseUrl = None
+		self.__username = None
+		self.__password = None
 
 	def getBaseUrl(self):
 		return self.baseUrl
+	
+	def setBaseUrl(self,value):
+		self.baseUrl = value
+	
+	def delBaseUrl(self):
+		del self.__baseUrl
+	
+	baseUrl = property(getBaseUrl,setBaseUrl,delBaseUrl,"baseUrl's docstring")
