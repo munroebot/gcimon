@@ -29,9 +29,6 @@ suite.addTest(BackendModuleWellFormedness("test_BACKEND_DESCRIPTION"))
 suite.addTest(BackendModuleWellFormedness("test_BACKEND_VERSION"))
 
 if __name__ == "__main__":
-    
     #runner = unittest.TextTestRunner()
     runner = xmlrunner.XmlTestRunner(sys.stdout)
     runner.run(suite)
-
-    #unittest.main()
