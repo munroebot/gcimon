@@ -40,7 +40,3 @@ class BaseBackend(object):
 	def setBaseUrl(self,value):
 		self.baseUrl = value
 	
-	def delBaseUrl(self):
-		del self.__baseUrl
-	
-	baseUrl = property(getBaseUrl,setBaseUrl,delBaseUrl,"baseUrl's docstring")
