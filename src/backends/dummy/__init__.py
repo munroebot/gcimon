@@ -28,8 +28,8 @@ BACKEND_DESCRIPTION = """ This is a dummy (mock) CI backend """
 
 class Backend(BaseBackend):
 	
-	def __init__(self):
-		pass
+	def __init__(self, baseUrl, username, password):
+		super(BaseBackend,self).__init__()
 
 	def getProjectStatus(self,projectName=None):
 		return Project.BUILD_STATUS_OK

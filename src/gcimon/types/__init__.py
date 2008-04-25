@@ -21,40 +21,48 @@ class Project(object):
     BUILD_STATUS_BROKE = "200_BROKE"
     
     def __init__(self):
-        self.__projectName = None
-        self.__projectStatus = None
+        self._projectName = None
+        self._projectStatus = None
 
     def getProjectName(self):
-        return self.__projectName
+        return self._projectName
 
     def getProjectStatus(self):
-        return self.__projectStatus
+        return self._projectStatus
 
     def setProjectName(self, value):
-        self.__projectName = value
+        self._projectName = value
 
     def setProjectStatus(self, value):
-        self.__projectStatus = value
+        self._projectStatus = value
 
     def delProjectName(self):
-        del self.__projectName
+        del self._projectName
 
     def delProjectStatus(self):
-        del self.__projectStatus
-        
-    projectName = property(getProjectName, setProjectName, delProjectName, "ProjectName's Docstring")
-    projectStatus = property(getProjectStatus, setProjectStatus, delProjectStatus, "ProjectStatus's Docstring")
+        del self._projectStatus
 
 class BaseBackend(object):
 
-	def __init__(self):
-		self.__baseUrl = None
-		self.__username = None
-		self.__password = None
+    def __init__(self,baseUrl=None,username=None,password=None):
+        self._baseUrl = baseUrl
+        self._username = username
+        self._password = password
+		
+    def getUsername(self):
+        return self._username
+    
+    def setUsername(self,value):
+        self._username = value
+    
+    def getPassword(self):
+        return self._password
+    
+    def setPassword(self,value):
+        self._password = value
 
-	def getBaseUrl(self):
-		return self.baseUrl
-	
-	def setBaseUrl(self,value):
-		self.baseUrl = value
-	
+    def getBaseUrl(self):
+        return self._baseUrl
+    
+    def setBaseUrl(self,value):
+        self._baseUrl = value

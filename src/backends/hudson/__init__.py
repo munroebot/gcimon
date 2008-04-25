@@ -34,13 +34,10 @@ BACKEND_VERSION = "1.0"
 	
 class Backend(BaseBackend):
 	
-	def __init__(self):
-		pass
-		
 	def getDashboardStatus(self):
 		try:
 			projectArray = []
-			sock = urllib.urlopen(self.baseUrl + '/api/xml')
+			sock = urllib.urlopen(self.getBaseUrl() + '/api/xml')
 			xmlSource = sock.read()                           
 			sock.close()
 			
@@ -49,20 +46,20 @@ class Backend(BaseBackend):
 			## Grab all jobs in the dashboard
 			jobsList = xmldoc.getElementsByTagName('job')
 			
-			## Job Nmaes
+			## Job Names
 			for x in jobsList:
 				p1 = Project()
 				nameList = x.getElementsByTagName('name')
 				for y in nameList:
-					p1.projectName = y.firstChild.nodeValue
+					p1.setProjectName(y.firstChild.nodeValue)
 					
 				## Job Statusus (colors)
 				colorList = x.getElementsByTagName('color')
 				for y in colorList:
 					if y.firstChild.nodeValue == 'blue':
-						p1.projectStatus = p1.BUILD_STATUS_OK
+						p1.setProjectStatus(p1.BUILD_STATUS_OK)
 					else:
-						p1.projectStatus = p1.BUILD_STATUS_BROKE
+						p1.setProjectStatus(p1.BUILD_STATUS_BROKE)
 			
 				projectArray.append(p1)
 		
@@ -73,7 +70,7 @@ class Backend(BaseBackend):
 			
 	def getProjectStatus(self,projectName=None):
 		try:
-			sock = urllib.urlopen(self.baseUrl + '/job/'+ urllib.quote(projectName) +'/api/xml')
+			sock = urllib.urlopen(self.getBaseUrl() + '/job/'+ urllib.quote(projectName) +'/api/xml')
 			xmlSource = sock.read()                           
 			sock.close()
 			xmldoc = minidom.parseString(xmlSource)
