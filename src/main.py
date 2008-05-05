@@ -1,3 +1,8 @@
+import gnomeapplet
+import sys
+import pygtk
+import gtk
+
 import backends
 from gcimon.types import Project
 
