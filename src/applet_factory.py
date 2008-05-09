@@ -40,6 +40,6 @@ if len(sys.argv) == 2 and sys.argv[1] == "--run-in-window":
     gtk.main()
     sys.exit()
     
-gnomeapplet.bonobo_factory("OAFIID:GNOME_PythonAppletSample_Factory", 
+gnomeapplet.bonobo_factory("OAFIID:GNOME_CIMonitor_Factory", 
                            gnomeapplet.Applet.__gtype__, 
                            "hello", "0", gcimon_factory)

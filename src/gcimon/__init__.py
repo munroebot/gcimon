@@ -16,7 +16,7 @@ class Gcimon(object):
         self.button1.show()
 
         self.button2 = gtk.Button("Button 2")
-        self.button2.connect("clicked", self.hello, None)        
+        self.button2.connect("clicked", self.destroy, None)        
         self.box1.pack_start(self.button2, True, True, 0)
         self.button2.show()
         
@@ -25,3 +25,6 @@ class Gcimon(object):
     
     def hello(self, widget, data=None):
         print "hello, world"
+        
+    def destroy(self, widget, data=None):
+        gtk.main_quit()
