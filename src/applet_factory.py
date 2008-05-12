@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # applet_factory.py
-# Copyright 2007, Brian Munroe <brian.e.munroe@gmail.com>
+# Copyright 2008, Brian Munroe <brian.e.munroe@gmail.com>
 
 # This file is part of gcimon.
 #
@@ -28,11 +28,12 @@ def gcimon_factory(applet, iid):
     Gcimon(applet,iid)
     return gtk.TRUE
 
-if len(sys.argv) == 2 and sys.argv[1] == "--run-in-window":
+if len(sys.argv) == 2 and sys.argv[1] == "-w":
     print "Running Interactively"
     main_window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    main_window.set_title("Python Applet Debug Windos")
-    main_window.connect("destroy", gtk.main_quit) 
+    main_window.set_title("Python Applet Debug Window")
+    main_window.connect("destroy", gtk.main_quit)
+    
     app = gnomeapplet.Applet()
     gcimon_factory(app, None)
     app.reparent(main_window)
