@@ -17,30 +17,61 @@
 # along with gcimon.  If not, see <http://www.gnu.org/licenses/>.
 
 class Project(object):
-    BUILD_STATUS_OK = "400_OK"
-    BUILD_STATUS_BROKE = "200_BROKE"
+    BUILD_STATUS_OK = 1
+    BUILD_STATUS_BROKE = 0
+    IS_MONITORED = 1
+    IS_NOT_MONITORED = 0
     
-    def __init__(self):
-        self._projectName = None
-        self._projectStatus = None
+    def __init__(self,projectId=None,projectName=None,projectStatus=None,projectBackend=None,projectHost=None,projectLast=None,projectState=IS_MONITORED):
+        self._projectId = projectId
+        self._projectName = projectName
+        self._projectStatus = projectStatus
+        self._projectBackend = projectBackend
+        self._projectHost = projectHost
+        self._projectLastChecked = projectLast
+        self._projectState=projectState
 
-    def getProjectName(self):
+    def getId(self):
+        return self._projectId
+
+    def setId(self, value):
+        self._projectId = value
+
+    def getName(self):
         return self._projectName
 
-    def getProjectStatus(self):
-        return self._projectStatus
-
-    def setProjectName(self, value):
+    def setName(self, value):
         self._projectName = value
 
-    def setProjectStatus(self, value):
+    def getStatus(self):
+        return self._projectStatus
+
+    def setStatus(self, value):
         self._projectStatus = value
+     
+    def getBackend(self):
+        return self._projectBackend
+    
+    def setBackend(self,value):
+        self._projectBackend = value
+    
+    def getHost(self):
+        return self._projectHost
 
-    def delProjectName(self):
-        del self._projectName
+    def setHost(self, value):
+        self._projectHost = value
 
-    def delProjectStatus(self):
-        del self._projectStatus
+    def getlastChecked(self):
+        return self._projectLastChecked
+
+    def setLastChecked(self, value):
+        self._projectLastChecked = value
+
+    def getState(self):
+        return self._projectState
+
+    def setState(self, value):
+        self._projectState = value
 
 class BaseBackend(object):
 

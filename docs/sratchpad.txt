@@ -2,3 +2,28 @@ http://localhost:8080/hudson/api/xml
 http://localhost:8080/hudson/job/Dummy Project for Hudson Monitor/api/xml
 
 Need to HTML encode these URLS? (%20)?  Yes, easy to do.
+
+# Fetch a Hudson backend and set the site to monitor
+hudson = backends.getBackend('hudson')
+site1 = hudson.Backend()
+site1.setBaseUrl('http://localhost:8080/hudson')
+site1.setUsername('brian')
+site1.setPassword('password')
+
+# Or, if you wish, you can set everything at once
+site2 = hudson.Backend('http://localhost:8080/hudson','brian','password')
+
+# Get the status of a specfic project
+print site1.getProjectStatus('GCI Monitor Dummy Project')
+
+## Or report the status for ALL the projects
+## on a continuous integration server dashboard
+## getDashboardStatus() returns a list of Project types.
+for project in site1.getDashboardStatus():
+	print project.getProjectName()
+	print project.getProjectStatus()
+
+# db1.updateStatus(project)
+# db1.newProject(project)
+# db1.getStatus(project)
+# db1.delProject(project)

@@ -23,6 +23,7 @@
 from gcimon.types import BaseBackend, Project
 
 import urllib
+import logging
 from xml.dom import minidom
 
 BACKEND_NAME = "hudson"
@@ -31,51 +32,59 @@ This backend is for the Hudson Continuous Integration Server.
 For more information, please see http://hudson.dev.java.net
 """
 BACKEND_VERSION = "1.0"
-	
+
+logger = logging.getLogger("Hudson Backend")
+
 class Backend(BaseBackend):
-	
-	def getDashboardStatus(self):
-		try:
-			projectArray = []
-			sock = urllib.urlopen(self.getBaseUrl() + '/api/xml')
-			xmlSource = sock.read()                           
-			sock.close()
+
+    def getDashboardStatus(self):
+        try:
+            projectArray = []
+            sock = urllib.urlopen(self.getBaseUrl() + '/api/xml')
+            xmlSource = sock.read()                           
+            sock.close()
 			
-			xmldoc = minidom.parseString(xmlSource)
+            xmldoc = minidom.parseString(xmlSource)
 		
-			## Grab all jobs in the dashboard
-			jobsList = xmldoc.getElementsByTagName('job')
+            ## Grab all jobs in the dashboard
+            jobsList = xmldoc.getElementsByTagName('job')
 			
-			## Job Names
-			for x in jobsList:
-				p1 = Project()
-				nameList = x.getElementsByTagName('name')
-				for y in nameList:
-					p1.setProjectName(y.firstChild.nodeValue)
+            ## Job Names
+            for x in jobsList:
+                p1 = Project()
+                nameList = x.getElementsByTagName('name')
+                for y in nameList:
+                    p1.setProjectName(y.firstChild.nodeValue)
 					
-				## Job Statusus (colors)
-				colorList = x.getElementsByTagName('color')
-				for y in colorList:
-					if y.firstChild.nodeValue == 'blue':
-						p1.setProjectStatus(p1.BUILD_STATUS_OK)
-					else:
-						p1.setProjectStatus(p1.BUILD_STATUS_BROKE)
+                ## Job Statusus (colors)
+                colorList = x.getElementsByTagName('color')
+                for y in colorList:
+                    if y.firstChild.nodeValue == 'blue':
+                        p1.setProjectStatus(p1.BUILD_STATUS_OK)
+                    else:
+                        p1.setProjectStatus(p1.BUILD_STATUS_BROKE)
 			
-				projectArray.append(p1)
+                    projectArray.append(p1)
 		
-			return projectArray
-		except Exception, e:
-			print("Error in backends.hudson.Backend.getDashboardStatus(): " + str(e))
-			return []
+            return projectArray
+        except Exception, e:
+            logger.error("Error in hudson.Backend.getDashboardStatus(): " + str(e))
+            return None
 			
-	def getProjectStatus(self,projectName=None):
-		try:
-			sock = urllib.urlopen(self.getBaseUrl() + '/job/'+ urllib.quote(projectName) +'/api/xml')
-			xmlSource = sock.read()                           
-			sock.close()
-			xmldoc = minidom.parseString(xmlSource)
-			return xmldoc.toxml()
-		except Exception, e: 
-			print("Error in backends.hudson.Backend.getProjectStatus(): " + str(e))
-			return None
+    def getProjectStatus(self,project=None):
+        try:
+            sock = urllib.urlopen(project.getHost() + "/job/" + urllib.quote(project.getName()) +'/api/xml')
+            xmlSource = sock.read()                           
+            sock.close()
+            xmldoc = minidom.parseString(xmlSource)
+            colorList = xmldoc.getElementsByTagName('color')
+            for y in colorList:
+                if y.firstChild.nodeValue == 'blue':
+                    return project.BUILD_STATUS_OK
+                else:
+                    return project.BUILD_STATUS_BROKE
+
+        except Exception, e: 
+            logger.error("Error in hudson.Backend.getProjectStatus(): " + str(e))
+            return None
  

@@ -1,28 +1,28 @@
-import gnomeapplet
-import sys
-import pygtk
-import gtk
-
 import backends
 from gcimon.types import Project
+from gcimon.core import Persistance
+import logging
+import time
 
-# Fetch a Hudson backend and set the site to monitor
-hudson = backends.getBackend('hudson')
-site1 = hudson.Backend()
-site1.setBaseUrl('http://localhost:8080/hudson')
-site1.setUsername('brian')
-site1.setPassword('password')
+logging.basicConfig(level=logging.DEBUG, \
+                    format='%(asctime)s %(levelname)s %(message)s', \
+                    filename='/tmp/gcimon.log', filemode='a')
 
-# Or, if you wish, you can set everything at once
-site2 = hudson.Backend('http://localhost:8080/hudson','brian','password')
+db1 = Persistance('/tmp/gcimon.db')
 
-# Get the status of a specfic project
-print site1.getProjectStatus('Dummy Project for Hudson Monitor')
-print site2.getProjectStatus('gcimon unit tests')
+# project = Project(projectName="GCI Monitor 2",projectHost="http://localhost:8080/hudson",projectBackend="hudson")
+# db1.newProject(project)
+# db1.updateProject(project)
+# db1.deleteProject(project)
 
-## Or report the status for ALL the projects
-## on a continuous integration server dashboard
-## getDashboardStatus() returns a list of Project types.
-for project in site1.getDashboardStatus():
-	print project.getProjectName()
-	print project.getProjectStatus()
+while 1:
+
+    for project in db1.getMonitoredProjects():
+        be1 = backends.getBackend(project.getBackend()).Backend()
+        project.setStatus(be1.getProjectStatus(project))
+        print "Project Name: %s, Build Status: %s, Last Checked: %s" % (project.getName(), project.getStatus(), str(project.getlastChecked()))
+    
+        db1.updateProject(project)
+        db1.setMonitoringState(Project(projectId=2,projectState=Project.IS_NOT_MONITORED))
+        
+    time.sleep(10)
